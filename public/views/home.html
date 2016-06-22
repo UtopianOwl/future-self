@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-xs-6">
+        <div class="row">
+            <form name="signupForm" class="well col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-4" novalidate>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" ng-model="newUser.name" required>
+                    <div class="alert alert-danger help-block" ng-show="signupForm.name.$invalid && signupForm.name.$touched" role="alert">
+                        <strong>Oh Snap!</strong> Name is a required field.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone#</label>
+                    <input type="text" name="phone" class="form-control" ng-model="newUser.phone" ng-pattern="/[\d]+/" ng-minlength="10" ng-maxlength="10" required>
+                    <div class="alert alert-danger help-block" ng-show="signupForm.phone.$invalid && signupForm.phone.$touched" role="alert">
+                        <strong>Oh Snap!</strong> Please enter a valid ten-digit US phone number.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" ng-model="newUser.password" required>
+
+                    <div class="alert alert-danger help-block" ng-show="signupForm.password.$invalid && signupForm.password.$touched" role="alert">
+                        <strong>Oh Snap!</strong> Password is a required field.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="repeatPassword">Repeat Password</label>
+                    <input type="password" name="repeatPassword" class="form-control" ng-model="newUser.repeatPassword" required>
+                    <div class="alert alert-danger help-block" ng-show="signupForm.repeatPassword.$invalid && signupForm.repeatPassword.$touched" role="alert">
+                        <strong>Oh Snap!</strong> Please retype your password to confirm.
+                    </div>
+                    <div class="alert alert-danger help-block" ng-show="newUser.password !== newUser.repeatPassword" role="alert">
+                        <strong>Oh Snap!</strong> Passwords do not match.
+                    </div>
+                </div>
+                <button class="btn btn-primary" ng-disabled="signupForm.$invalid" ng-click="addUser()">Signup</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="row">
+            <form name="loginForm" class="well col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-4" novalidate>
+                <div class="form-group">
+                    <label for="phone">Phone#</label>
+                    <input type="number" name="phone" class="form-control" ng-model="user.phone">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" ng-model="user.password">
+                </div>
+                <button class="btn btn-primary" ng-click="login()">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
