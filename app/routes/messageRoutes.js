@@ -9,6 +9,7 @@ messageRouter.post("/", function(req, res) {
       else {
           user.messages.push(req.body);
           req.body.number = user.phone;
+          console.log(req.body);
           setTimeout(function() {
               request({
                   url: "http://textbelt.com/text",

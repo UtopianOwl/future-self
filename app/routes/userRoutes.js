@@ -3,14 +3,14 @@ var userRouter = express.Router();
 var User = require("../models/user");
 
 userRouter.get("/", function (req, res) {
-//    User.findOne(req.query, function (err, user) {
-//        if (err) res.status(500).send(err);
-//        else res.send(user);
-//    });
-    User.find(function (err, userList) {
+    User.findOne(req.query, function (err, user) {
         if (err) res.status(500).send(err);
-        else res.send(userList);
+        else res.send(user);
     });
+//    User.find(function (err, userList) {
+//        if (err) res.status(500).send(err);
+//        else res.send(userList);
+//    });
 });
 
 userRouter.post("/", function (req, res) {
